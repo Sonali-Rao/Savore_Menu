@@ -366,7 +366,7 @@ function TextField({
   return (
     <div>
       <label htmlFor={id} className="field-label">
-        {label} {optional && <span className="font-normal text-muted">(optional)</span>}
+        {label}{optional && <span className="font-normal text-muted"> (optional)</span>}
       </label>
       <input
         id={id}

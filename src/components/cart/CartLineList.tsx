@@ -51,9 +51,9 @@ export function CartLineList({ lines, variant, emptyFocusId }: Props) {
         return (
           <li
             key={line.key}
-            className={`grid gap-3.5 border-b border-line py-4 last:border-b-0 ${big ? 'grid-cols-[88px_1fr]' : 'grid-cols-[64px_1fr]'}`}
+            className={`grid gap-3.5 border-b border-line py-4 last:border-b-0 ${big ? 'grid-cols-[64px_1fr] sm:grid-cols-[88px_1fr]' : 'grid-cols-[64px_1fr]'}`}
           >
-            <div className={`relative overflow-hidden rounded-xl bg-surface-2 ${big ? 'size-[88px]' : 'size-16'}`}>
+            <div className={`relative overflow-hidden rounded-xl bg-surface-2 ${big ? 'size-16 sm:size-[88px]' : 'size-16'}`}>
               <Image src={unsplash(dish.image)} alt="" fill sizes={big ? '88px' : '64px'} className="object-cover" />
             </div>
             <div className="min-w-0">
@@ -86,9 +86,9 @@ export function CartLineList({ lines, variant, emptyFocusId }: Props) {
                     aria-haspopup="dialog"
                     aria-label={`Edit ${dish.name}`}
                     onClick={() => openCustomiser({ dishId: dish.id, editKey: line.key, fromDrawer: variant === 'drawer' })}
-                    className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-2 text-[0.82rem] font-semibold text-ink-2 hover:bg-surface-2 hover:text-ink"
+                    className="inline-flex min-h-9 min-w-9 items-center justify-center gap-1.5 rounded-full px-2.5 py-2 text-[0.82rem] font-semibold text-ink-2 hover:bg-surface-2 hover:text-ink"
                   >
-                    <Pencil aria-hidden className="size-4" /> Edit
+                    <Pencil aria-hidden className="size-4" /> <span className={big ? 'max-sm:sr-only' : ''}>Edit</span>
                   </button>
                 )}
                 <button
@@ -96,9 +96,9 @@ export function CartLineList({ lines, variant, emptyFocusId }: Props) {
                   data-remove
                   aria-label={`Remove ${dish.name}`}
                   onClick={() => handleRemove(index, line.key, dish.name)}
-                  className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-2 text-[0.82rem] font-semibold text-ink-2 hover:bg-surface-2 hover:text-danger"
+                  className="inline-flex min-h-9 min-w-9 items-center justify-center gap-1.5 rounded-full px-2.5 py-2 text-[0.82rem] font-semibold text-ink-2 hover:bg-surface-2 hover:text-danger"
                 >
-                  <Trash2 aria-hidden className="size-4" /> Remove
+                  <Trash2 aria-hidden className="size-4" /> <span className={big ? 'max-sm:sr-only' : ''}>Remove</span>
                 </button>
               </div>
             </div>

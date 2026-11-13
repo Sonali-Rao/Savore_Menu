@@ -104,7 +104,7 @@ export function CartView() {
             {orderType === 'dine-in' ? (
               <div>
                 <label htmlFor="table-no" className="field-label">
-                  Table number <span className="font-normal text-muted">(optional)</span>
+                  Table number<span className="font-normal text-muted"> (optional)</span>
                 </label>
                 <input
                   id="table-no"
@@ -180,7 +180,7 @@ function BillSummary({ onPlaceOrder }: { onPlaceOrder: () => void }) {
           <dd className="tabular-nums">{formatPaise(bill.gst)}</dd>
         </div>
       </dl>
-      <div ref={totalRef} className="-mx-2 flex items-baseline justify-between rounded-lg border-t border-ink px-2 pt-4 pb-5">
+      <div ref={totalRef} className="flex items-baseline justify-between border-t border-ink pt-4 pb-5">
         <span className="font-semibold">To pay</span>
         <strong className="font-serif text-[2rem] font-medium tabular-nums">{formatPaise(bill.total)}</strong>
       </div>

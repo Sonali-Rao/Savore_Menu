@@ -68,7 +68,7 @@ function CustomiserForm({ dish, editKey }: { dish: Dish; editKey?: string }) {
     <form onSubmit={submit} className="flex min-h-0 flex-1 flex-col">
       <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain">
         <div className="relative aspect-[16/8] bg-surface-2 sm:aspect-video">
-          <Image src={unsplash(dish.image)} alt={dish.name} fill sizes="480px" className="object-cover" priority />
+          <Image src={unsplash(dish.image)} alt="" fill sizes="480px" className="object-cover" priority />
           <button type="button" data-autofocus onClick={close} aria-label="Close" className="icon-btn absolute top-3.5 right-3.5 shadow-soft">
             <X aria-hidden className="size-5" />
           </button>
@@ -112,7 +112,8 @@ function CustomiserForm({ dish, editKey }: { dish: Dish; editKey?: string }) {
         <div className="px-5 pt-5.5 pb-6">
           <label htmlFor="kitchen-note" className="mb-2.5 block font-serif text-[1.2rem]">
             Note for the kitchen{' '}
-            <span className="ml-1.5 font-sans text-[0.72rem] font-semibold tracking-[0.06em] text-muted uppercase">Optional</span>
+            <span aria-hidden className="ml-1.5 font-sans text-[0.72rem] font-semibold tracking-[0.06em] text-muted uppercase">Optional</span>
+            <span className="sr-only"> (optional)</span>
           </label>
           <textarea
             id="kitchen-note"
@@ -153,9 +154,10 @@ function OptionFieldset({
     <fieldset className="min-w-0 px-5 pt-5.5">
       <legend className="float-left mb-3 flex w-full items-baseline justify-between gap-2">
         <span className="font-serif text-[1.2rem] font-medium">{group.label}</span>
-        <span className={`text-[0.72rem] font-semibold tracking-[0.06em] uppercase ${multi ? 'text-muted' : 'text-terra-700'}`}>
+        <span aria-hidden className={`text-[0.72rem] font-semibold tracking-[0.06em] uppercase ${multi ? 'text-muted' : 'text-terra-700'}`}>
           {multi ? 'Optional' : 'Required'}
         </span>
+        <span className="sr-only">{multi ? ' (optional)' : ' (required)'}</span>
       </legend>
 
       {group.kind === 'spice' ? (
