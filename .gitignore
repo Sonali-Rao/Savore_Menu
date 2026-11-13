@@ -23,3 +23,6 @@ npm-debug.log*
 
 # local editor / assistant config
 .claude/
+
+# personal notes (not part of the project)
+notes/
