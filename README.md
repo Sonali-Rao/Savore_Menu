@@ -1,5 +1,7 @@
 # SAVORÉ — Digital Dining Experience
 
+https://savore-menu.vercel.app/
+
 A restaurant website for **SAVORÉ**, a *fictional* healthy all-day kitchen in Bengaluru. It is a frontend portfolio project built with Next.js, TypeScript and Tailwind CSS: browse an interactive menu, customise dishes, build an order with a live GST bill, and request a table.
 
 > **Demo only.** SAVORÉ is not a real restaurant. No orders are sent, no payments are taken and no reservations are made. The address and phone number are placeholders.
