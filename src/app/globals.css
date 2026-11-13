@@ -1,0 +1,188 @@
+@import 'tailwindcss';
+
+/* ---------- Design tokens (from the approved Phase 2 prototype) ---------- */
+@theme {
+  --color-bg: #f5f0e6;
+  --color-surface: #fbf8f2;
+  --color-surface-2: #efe8da;
+  --color-line: #e2d8c6;
+  --color-line-strong: #cfc3ad;
+  --color-ink: #28271f;
+  --color-ink-2: #4e4b42;
+  --color-muted: #6b665a;
+  --color-sage-50: #eef1e8;
+  --color-sage-100: #dfe5d4;
+  --color-sage-400: #8a9a7b;
+  --color-sage-600: #5b6c4d;
+  --color-sage-800: #36412e;
+  --color-sage-900: #262e20;
+  --color-terra: #b04f2c;
+  --color-terra-700: #943e20;
+  --color-terra-50: #f6e6dc;
+  --color-terra-200: #eac9b6;
+  --color-veg: #2f7a35;
+  --color-nonveg: #8a3a1c;
+  --color-danger: #a1301c;
+  --color-danger-50: #fbede8;
+
+  --font-serif: var(--font-fraunces), Georgia, 'Times New Roman', serif;
+  --font-sans: var(--font-inter), system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --shadow-soft: 0 1px 2px rgb(40 39 31 / 0.05), 0 12px 32px -16px rgb(40 39 31 / 0.22);
+  --shadow-lift: 0 24px 60px -20px rgb(30 30 20 / 0.35);
+
+  --ease-soft: cubic-bezier(0.2, 0.7, 0.2, 1);
+
+  --animate-fade-up: fade-up 0.35s var(--ease-soft);
+  --animate-pop: pop 0.45s var(--ease-soft);
+  --animate-bump: bump 0.35s var(--ease-soft);
+
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: none; }
+  }
+  @keyframes pop {
+    from { opacity: 0; transform: scale(0.6); }
+    to { opacity: 1; transform: none; }
+  }
+  @keyframes bump {
+    40% { transform: scale(1.3); }
+  }
+}
+
+/* ---------- Base ---------- */
+@layer base {
+  html { -webkit-text-size-adjust: 100%; scroll-padding-top: 88px; }
+  body {
+    @apply bg-bg text-ink font-sans antialiased;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  h1, h2, h3, h4 {
+    @apply font-serif font-medium;
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+  }
+  :focus-visible {
+    outline: 3px solid var(--color-sage-600);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+  /* Programmatic focus targets (page headings) don't need a ring. */
+  [tabindex='-1']:focus:not(:focus-visible) { outline: none; }
+  ::selection { background: var(--color-sage-100); }
+  /* Lock page scroll while a modal dialog is open. */
+  html:has(dialog[open]) { overflow: hidden; }
+}
+
+/* ---------- Reusable components ---------- */
+@layer components {
+  .page-container { @apply mx-auto w-full max-w-[1200px] px-4 md:px-7 xl:px-10; }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-[0.78rem] font-semibold uppercase tracking-[0.14em] text-sage-600;
+  }
+  .eyebrow::before { content: ''; width: 22px; height: 1.5px; background: currentColor; }
+
+  .btn {
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-6 text-[0.95rem] font-semibold whitespace-nowrap
+      transition-[background-color,color,box-shadow,transform,border-color] duration-200 active:translate-y-px
+      disabled:cursor-not-allowed disabled:opacity-45;
+  }
+  .btn-primary { @apply bg-terra text-white hover:bg-terra-700 hover:shadow-[0_8px_20px_-10px_rgb(148_62_32/0.7)]; }
+  .btn-outline { @apply border-[1.5px] border-ink text-ink hover:bg-ink hover:text-bg; }
+  .btn-light { @apply bg-bg text-sage-900 hover:bg-white; }
+  .btn-sm { @apply min-h-[42px] px-[18px]; }
+
+  .link-arrow {
+    @apply inline-flex items-center gap-1.5 font-semibold text-terra-700 transition-[gap] duration-200 hover:gap-2.5;
+  }
+
+  .icon-btn {
+    @apply grid size-11 place-items-center rounded-full border border-line bg-surface text-ink transition-colors hover:bg-surface-2;
+  }
+
+  .card { @apply rounded-[22px] border border-line bg-surface; }
+
+  /* Native form inputs */
+  .field-label { @apply mb-1.5 block text-[0.88rem] font-semibold; }
+  .input {
+    @apply w-full rounded-xl border border-line-strong bg-surface px-3.5 py-3 text-[0.95rem] placeholder:text-[#8c877a]
+      focus:border-sage-600 focus:shadow-[0_0_0_3px_var(--color-sage-100)] focus:outline-none;
+  }
+  .input[aria-invalid='true'] { @apply border-danger; }
+
+  /* Selectable option rows (radios / checkboxes with a visible label) */
+  .choice {
+    @apply flex min-h-[52px] cursor-pointer items-center gap-3 rounded-xl border border-line bg-surface px-3.5 py-3
+      transition-colors hover:border-line-strong;
+  }
+  .choice:has(input:checked) { @apply border-sage-600 bg-sage-50; }
+  .choice:has(input:focus-visible) { outline: 3px solid var(--color-sage-600); outline-offset: 2px; }
+  .choice:has(input:disabled) { @apply cursor-not-allowed border-dashed bg-transparent text-[#a8a190] line-through; }
+  .choice input { @apply m-0 size-[18px] shrink-0 accent-sage-600; }
+  .choice input:focus-visible { outline: none; }
+
+  /* Pill-shaped radios (date, time, seating) where the input itself is visually hidden */
+  .pill-choice {
+    @apply relative flex cursor-pointer items-center justify-center rounded-xl border border-line bg-bg text-center
+      transition-colors hover:border-line-strong;
+  }
+  .pill-choice input { @apply pointer-events-none absolute opacity-0; }
+  .pill-choice:has(input:focus-visible) { outline: 3px solid var(--color-sage-600); outline-offset: 2px; }
+  .pill-choice:has(input:disabled) { @apply cursor-not-allowed border-dashed bg-transparent text-[#a8a190] line-through; }
+  .pill-choice.solid:has(input:checked) { @apply border-sage-800 bg-sage-800 text-[#f2eee3]; }
+  .pill-choice.soft:has(input:checked) { @apply border-sage-600 bg-sage-50 shadow-[inset_0_0_0_1px_var(--color-sage-600)]; }
+
+  .toggle-chip {
+    @apply inline-flex h-9 shrink-0 items-center gap-1.5 rounded-full border border-line-strong px-3.5 text-[0.85rem] font-medium text-ink-2
+      transition-colors hover:border-ink-2 hover:text-ink;
+  }
+  .toggle-chip[aria-pressed='true'] { @apply border-sage-600 bg-sage-100 text-sage-900; }
+  .toggle-chip[aria-pressed='true']::before { content: ''; @apply size-1.5 rounded-full bg-sage-600; }
+
+  .no-scrollbar { scrollbar-width: none; }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+}
+
+/* ---------- Native <dialog> as a side drawer / bottom sheet ---------- */
+dialog.drawer {
+  margin: 0 0 0 auto;
+  padding: 0;
+  border: 0;
+  width: min(480px, 100%);
+  max-width: 100%;
+  height: 100dvh;
+  max-height: 100dvh;
+  background: var(--color-bg);
+  color: var(--color-ink);
+  box-shadow: var(--shadow-lift);
+}
+dialog.drawer[open] { display: flex; flex-direction: column; animation: drawer-in 0.38s var(--ease-soft); }
+dialog.drawer::backdrop { background: rgb(28 27 20 / 0.45); animation: backdrop-in 0.3s ease; }
+@media (max-width: 639px) {
+  dialog.drawer.sheet {
+    margin: auto 0 0;
+    width: 100%;
+    height: auto;
+    max-height: 92dvh;
+    border-radius: 24px 24px 0 0;
+  }
+  dialog.drawer.sheet[open] { animation-name: sheet-in; }
+}
+@keyframes drawer-in { from { transform: translateX(100%); } }
+@keyframes sheet-in { from { transform: translateY(100%); } }
+@keyframes backdrop-in { from { opacity: 0; } }
+
+/* Keep toasts clear of the floating cart bar on the menu (small screens). */
+@media (max-width: 1099px) {
+  body:has([data-cart-bar]) [data-toast] { bottom: 92px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after, dialog::backdrop {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

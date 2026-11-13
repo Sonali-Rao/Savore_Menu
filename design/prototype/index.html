@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>SAVORÉ — Prototype</title>
+  <meta name="description" content="Design prototype for SAVORÉ, a fictional healthy all-day kitchen in Bengaluru.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="proto-bar" role="region" aria-label="Prototype screens">
+    <div class="container">
+      <strong>PROTOTYPE · Phase 2</strong>
+      <nav aria-label="Jump to screen">
+        <a href="#home" data-proto="home">Home</a>
+        <a href="#menu" data-proto="menu">Menu</a>
+        <a href="#customise" data-proto="customise">Customise</a>
+        <a href="#cart" data-proto="cart">Cart &amp; bill</a>
+        <a href="#reserve" data-proto="reserve">Reserve</a>
+      </nav>
+    </div>
+  </div>
+
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="logo" href="#home" aria-label="SAVORÉ home">
+        <svg class="logo-mark" viewBox="0 0 32 32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+          <path d="M16 29V11"/><path d="M16 18c-5 0-8-3.5-8-8 5 0 8 3.5 8 8Z" fill="currentColor" fill-opacity=".18"/><path d="M16 14c4.5 0 7.5-3 7.5-7.5-4.5 0-7.5 3-7.5 7.5Z" fill="currentColor" fill-opacity=".18"/><path d="M10 29h12"/>
+        </svg>
+        <span class="logo-word">SAVORÉ</span>
+      </a>
+      <nav class="main-nav" aria-label="Main">
+        <ul>
+          <li><a href="#home" data-nav="home">Home</a></li>
+          <li><a href="#menu" data-nav="menu">Menu</a></li>
+          <li><a href="#reserve" data-nav="reserve">Reservations</a></li>
+          <li><a href="#home" data-scroll="visit">Visit</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a class="btn btn-outline header-reserve" href="#reserve">Book a table</a>
+        <button class="cart-btn" type="button" id="cartBtn" aria-label="Open your order, 0 items" aria-haspopup="dialog">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="cart-count" id="cartCount" hidden>0</span>
+        </button>
+        <button class="menu-toggle" type="button" id="menuToggle" aria-expanded="false" aria-controls="mobileNav" aria-label="Open menu">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile" hidden>
+      <div class="container">
+        <ul>
+          <li><a href="#home" data-nav="home">Home</a></li>
+          <li><a href="#menu" data-nav="menu">Menu</a></li>
+          <li><a href="#reserve" data-nav="reserve">Reservations</a></li>
+          <li><a href="#home" data-scroll="visit">Visit us</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <!-- ================= HOME ================= -->
+    <div class="screen" data-screen="home">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="container hero-grid">
+          <div>
+            <span class="eyebrow">All-day kitchen · Indiranagar, Bengaluru</span>
+            <h1 id="hero-title">Good food, <em>honestly</em> made.</h1>
+            <p class="lead">Seasonal bowls, slow coffee and house-brewed kombucha — cooked from whole, clean ingredients, with nothing we wouldn’t eat at home.</p>
+            <div class="hero-ctas">
+              <a class="btn btn-primary" href="#menu">Explore the menu
+                <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </a>
+              <a class="btn btn-outline" href="#reserve">Book a table</a>
+            </div>
+            <ul class="hero-facts">
+              <li><svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Open daily, 8 AM – 10:30 PM</li>
+              <li><svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>Dine in or take away</li>
+            </ul>
+          </div>
+          <div class="hero-media">
+            <div class="hero-img"><img data-img="hero" alt="A colourful grain bowl with greens, roasted vegetables and seeds on a wooden table" fetchpriority="high"></div>
+            <a class="pick-card" href="#customise">
+              <img data-img="millet-miso" alt="">
+              <div>
+                <small>Chef’s pick today</small>
+                <strong>Millet &amp; Miso Bowl</strong>
+                <span class="meta">520 kcal · 24 g protein · ₹460</span>
+              </div>
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="values" aria-label="What we stand for">
+        <div class="container">
+          <ul>
+            <li>
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg>
+              <strong>Cold-pressed oils only</strong>
+              <p>Groundnut, coconut and sesame — never refined.</p>
+            </li>
+            <li>
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+              <strong>No refined sugar</strong>
+              <p>Sweetened with dates, jaggery and fruit.</p>
+            </li>
+            <li>
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/></svg>
+              <strong>Millets &amp; whole grains</strong>
+              <p>Ragi, foxtail and barnyard, cooked with care.</p>
+            </li>
+            <li>
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 2h8"/><path d="M9 2v3.5L5.5 11A4 4 0 0 0 5 13v6a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3v-6a4 4 0 0 0-.5-2L15 5.5V2"/><path d="M5 15h14"/></svg>
+              <strong>Fermented in-house</strong>
+              <p>Small-batch kombucha, brewed every week.</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section story" aria-labelledby="story-title">
+        <div class="container story-grid">
+          <div class="arch"><img data-img="story" alt="A cook chopping fresh herbs and mushrooms on a wooden board" loading="lazy"></div>
+          <div>
+            <span class="eyebrow">Our kitchen</span>
+            <h2 id="story-title">The food you’d cook every day, if you had the time.</h2>
+            <p class="lead">SAVORÉ is a neighbourhood kitchen for weekday lunches, slow Sunday breakfasts and easy dinners. We keep the menu short so everything on it can be made properly — from scratch, each morning.</p>
+            <ul class="story-points">
+              <li><span class="dot"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>Calories, protein and allergens listed on every dish.</li>
+              <li><span class="dot"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>Plenty for vegans, meat-eaters and fussy little ones alike.</li>
+              <li><span class="dot"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>Coffee roasted in Chikmagalur, brewed by people who care.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section featured" aria-labelledby="featured-title">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <span class="eyebrow">From the kitchen</span>
+              <h2 id="featured-title" style="margin-top:14px">What people come back for</h2>
+            </div>
+            <a class="link-arrow" href="#menu">See the full menu
+              <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+          <div class="feature-row" id="featureRow"></div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="modes-title">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <span class="eyebrow">Your way</span>
+              <h2 id="modes-title" style="margin-top:14px">Stay a while, or take it with you</h2>
+            </div>
+          </div>
+          <div class="modes">
+            <div class="mode-card">
+              <span class="icon-wrap"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg></span>
+              <h3>Dine in</h3>
+              <p>Sunlit tables, a small garden patio and no rush. Order at your table or book ahead for the weekend.</p>
+              <a class="link-arrow" href="#reserve">Reserve a table <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+            </div>
+            <div class="mode-card">
+              <span class="icon-wrap"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span>
+              <h3>Takeaway</h3>
+              <p>Pre-order from the menu, choose a pickup time, and we’ll have it packed in compostable boxes.</p>
+              <a class="link-arrow" href="#menu">Start an order <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section aria-labelledby="cta-title">
+        <div class="container">
+          <div class="cta-band">
+            <svg class="leaf" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/></svg>
+            <div>
+              <h2 id="cta-title">We’ll save you <em>a seat.</em></h2>
+              <p style="margin-top:14px">Weekend brunch fills up quickly. Pick a time that suits you — it takes less than a minute.</p>
+            </div>
+            <div><a class="btn btn-light" href="#reserve">Book a table</a></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section visit" id="visit" aria-labelledby="visit-title">
+        <div class="container visit-grid">
+          <div>
+            <span class="eyebrow">Visit us</span>
+            <h2 id="visit-title">Find us in Indiranagar</h2>
+            <dl>
+              <div><dt>Address</dt><dd>14, 12th Main Road, HAL 2nd Stage<br>Indiranagar, Bengaluru 560038</dd></div>
+              <div><dt>Hours</dt><dd>Every day, 8:00 AM – 10:30 PM<br><span style="color:var(--muted);font-size:.92rem">Breakfast served until 12 noon</span></dd></div>
+              <div><dt>Contact</dt><dd>+91 80 0000 0000 · hello@savore.example</dd></div>
+            </dl>
+          </div>
+          <div class="map" role="img" aria-label="Illustrated map showing SAVORÉ on 12th Main Road, Indiranagar">
+            <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <rect width="600" height="400" fill="#E9E2D2"/>
+              <path d="M0 120 L600 90" stroke="#F8F4EA" stroke-width="22"/>
+              <path d="M0 300 L600 270" stroke="#F8F4EA" stroke-width="16"/>
+              <path d="M180 0 L220 400" stroke="#F8F4EA" stroke-width="18"/>
+              <path d="M430 0 L400 400" stroke="#F8F4EA" stroke-width="26"/>
+              <path d="M0 210 Q300 180 600 200" stroke="#F8F4EA" stroke-width="10"/>
+              <rect x="250" y="130" width="120" height="60" rx="10" fill="#D6DDC9"/>
+              <rect x="40" y="150" width="110" height="40" rx="8" fill="#DED6C4"/>
+              <rect x="470" y="140" width="100" height="45" rx="8" fill="#DED6C4"/>
+              <circle cx="90" cy="340" r="36" fill="#D6DDC9"/>
+              <text x="440" y="80" font-family="Inter, sans-serif" font-size="13" fill="#8C8676">100 Feet Rd</text>
+              <text x="40" y="112" font-family="Inter, sans-serif" font-size="13" fill="#8C8676">12th Main Rd</text>
+              <g transform="translate(300 150)">
+                <circle r="34" fill="#B04F2C" fill-opacity=".16"/>
+                <path d="M0 -30 C-14 -30 -22 -20 -22 -9 C-22 6 0 22 0 22 C0 22 22 6 22 -9 C22 -20 14 -30 0 -30 Z" fill="#B04F2C"/>
+                <circle cy="-10" r="7" fill="#FBF8F2"/>
+              </g>
+            </svg>
+            <span class="map-label"><strong>SAVORÉ</strong> · 2 min walk from Indiranagar Metro</span>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ================= MENU ================= -->
+    <div class="screen" data-screen="menu" hidden>
+      <div class="container page-head">
+        <span class="eyebrow">Served all day</span>
+        <h1>The Menu</h1>
+        <p>A short menu, cooked properly. Tap any dish to make it yours — every option shows its price before you add it.</p>
+      </div>
+      <div class="menu-tools">
+        <div class="container">
+          <div class="cat-tabs" id="catTabs" role="group" aria-label="Menu categories"></div>
+          <div class="filter-row">
+            <div class="search">
+              <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+              <label for="search" class="sr-only">Search the menu</label>
+              <input id="search" type="search" placeholder="Search dishes or ingredients" autocomplete="off">
+              <button class="search-clear" type="button" id="searchClear" aria-label="Clear search" hidden>
+                <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+              </button>
+            </div>
+            <div class="chips" id="chips" role="group" aria-label="Dietary filters"></div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="result-line"><p id="resultCount" aria-live="polite"></p><button type="button" id="clearFilters" hidden>Clear filters</button></div>
+        <div class="menu-layout">
+          <div id="menuList"></div>
+          <aside class="mini-cart" aria-labelledby="mini-title"><div class="order-card" id="miniCart"></div></aside>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= CART ================= -->
+    <div class="screen" data-screen="cart" hidden>
+      <div id="cartScreen"></div>
+    </div>
+
+    <!-- ================= RESERVE ================= -->
+    <div class="screen" data-screen="reserve" hidden>
+      <div id="reserveScreen"></div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a class="logo" href="#home" aria-label="SAVORÉ home">
+            <svg class="logo-mark" viewBox="0 0 32 32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M16 29V11"/><path d="M16 18c-5 0-8-3.5-8-8 5 0 8 3.5 8 8Z"/><path d="M16 14c4.5 0 7.5-3 7.5-7.5-4.5 0-7.5 3-7.5 7.5Z"/><path d="M10 29h12"/></svg>
+            <span class="logo-word">SAVORÉ</span>
+          </a>
+          <p style="margin-top:14px;max-width:26rem">Good food, honestly made. An all-day kitchen for clean, seasonal cooking in Indiranagar.</p>
+        </div>
+        <div>
+          <h3>Explore</h3>
+          <ul><li><a href="#menu">Menu</a></li><li><a href="#reserve">Reservations</a></li><li><a href="#cart">Your order</a></li></ul>
+        </div>
+        <div>
+          <h3>Hours</h3>
+          <ul><li>Every day</li><li>8:00 AM – 10:30 PM</li></ul>
+        </div>
+        <div>
+          <h3>Find us</h3>
+          <ul><li>12th Main Road, Indiranagar</li><li>Bengaluru 560038</li><li>+91 80 0000 0000</li></ul>
+        </div>
+      </div>
+      <div class="disclaimer">
+        <p>SAVORÉ is a fictional restaurant created for a portfolio project. Orders and reservations on this site are demonstrations only.</p>
+        <p>Photography via Unsplash</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile cart bar -->
+  <div class="cart-bar" id="cartBar" aria-hidden="true">
+    <div class="cb-sum"><span id="cbCount">0 items</span><strong id="cbTotal">₹0</strong></div>
+    <button class="btn btn-primary" type="button" id="cbOpen" tabindex="-1">View order
+      <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+    </button>
+  </div>
+
+  <!-- Panels -->
+  <div class="scrim" id="scrim" hidden></div>
+  <section class="panel sheet" id="dishPanel" role="dialog" aria-modal="true" aria-labelledby="czTitle" hidden></section>
+  <section class="panel" id="cartPanel" role="dialog" aria-modal="true" aria-labelledby="cartPanelTitle" hidden></section>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
