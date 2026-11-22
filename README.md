@@ -136,9 +136,10 @@ docs/screenshots/       Screenshots used in this README
 - **Unit tests (Vitest):** 33 tests covering option pricing, cart-line keys, bill and GST rounding, filters and search, bookable dates, slot availability, phone normalisation and form validation.
 - **Accessibility:** automated axe-core scans (WCAG 2.2 AA + best practices) of every page and interactive state — open dialogs, cart drawer, mobile menu, empty states, form errors and confirmations — at desktop and mobile widths returned no violations at the time of testing.
 - **Keyboard:** a scripted keyboard-only walkthrough of every flow (skip link, filters, dialogs, steppers, date/time radios, error links, confirmations).
+- **Screen reader:** manual testing with NVDA on Windows.
 - **Responsive:** checked for horizontal overflow at 320, 390, 768, 1024 and 1440 px.
 
-Not yet done: a manual pass with a screen reader (NVDA / VoiceOver / Narrator) and testing in Safari and Firefox.
+Not yet done: testing with VoiceOver (macOS/iOS) and in Safari and Firefox.
 
 ---
 
