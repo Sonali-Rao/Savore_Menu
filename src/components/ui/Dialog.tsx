@@ -35,7 +35,8 @@ export function Dialog({ open, onClose, labelledBy, variant = 'drawer', children
     // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions
     <dialog
       ref={ref}
-      aria-labelledby={labelledBy}
+      // Only reference the title while it exists; the content (and its heading) render only when open.
+      aria-labelledby={open ? labelledBy : undefined}
       className={variant === 'sheet' ? 'drawer sheet' : 'drawer'}
       onClose={onClose}
       onClick={(e) => {
